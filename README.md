@@ -1,5 +1,5 @@
 # Sobre nós
-O projeto **"Casa Floralles"** tem como objetivo desenvolver um sistema de gerenciamento para floriculturas e botânicos. A plataforma visa aprimorar os processos internos da floricultura, reduzir erros na identificação das espécies e oferecer um atendimento mais ágil e personalizado, auxiliando a organização da empresa.
+O projeto **"Casa Floralles"** uma equipe composta por profissionais dedicadas. **Eloá Pereira Florêncio**, como ***Product Owner/Scrum Master (P.O./S.M.)***, é responsável por organizar o projeto e aplicar a metodologia ágil. **Beatriz Gabrielle Vizeu de Salles**, responsável pelo ***UX/UI***, foca na experiência do usuário e no design de uma interface intuitiva. **Laila Casadei Macêdo**, à frente do ***DevOps***, garante a infraestrutura e a eficiência técnica da plataforma. Juntas, buscamos desenvolver um sistema inovador e funcional para otimizar a rotina dos floricultores e melhorar a experiência dos clientes.
 
 <p align="center"> 
   <img src="./bannerfloralles.png" style="width:800px; height:auto;">

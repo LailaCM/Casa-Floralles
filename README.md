@@ -26,7 +26,7 @@ Manter as atividades organizadas é essencial para um bom atendimento e maior co
 ## Links Importantes
 
 ### Documento do Projeto
-[📄 Acesse o documento do projeto](./docs/TCC.docx)
+[📄 Acesse o documento do projeto](./assets/TCC.docx)
 
 ### Protótipo App
 [📱 Acesse o protótipo do app no Figma](https://www.figma.com/design/dW8D6QI2PlLLgf9FM9uDWR/Test--Copy-?node-id=0-1&t=RDrehTt3Zuusj4W7-1)

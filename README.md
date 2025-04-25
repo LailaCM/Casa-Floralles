@@ -2,7 +2,7 @@
 O projeto **"Casa Floralles"** uma equipe composta por profissionais dedicadas. **Eloá Pereira Florêncio**, como ***Product Owner/Scrum Master (P.O./S.M.)***, é responsável por organizar o projeto e aplicar a metodologia ágil. **Beatriz Gabrielle Vizeu de Salles**, responsável pelo ***UX/UI***, foca na experiência do usuário e no design de uma interface intuitiva. **Laila Casadei Macêdo**, à frente do ***DevOps***, garante a infraestrutura e a eficiência técnica da plataforma. Juntas, buscamos desenvolver um sistema inovador e funcional para otimizar a rotina dos floricultores e melhorar a experiência dos clientes.
 
 <p align="center"> 
-  <img src="./assets/bannerfloralles.png" style="width:1000px; height:auto;">
+  <img src="./assets/img/bannerfloralles.png" style="width:1000px; height:auto;">
 </p>
 
 # Escolha da metodologia
@@ -25,11 +25,28 @@ Manter as atividades organizadas é essencial para um bom atendimento e maior co
 
 ## Links Importantes
 
-### Documento do Projeto
-[📄 Acesse o documento do projeto](./assets/TCC.docx)
-
 ### Protótipo App
 [📱 Acesse o protótipo do app no Figma](https://www.figma.com/design/dW8D6QI2PlLLgf9FM9uDWR/Test--Copy-?node-id=0-1&t=RDrehTt3Zuusj4W7-1)
 
 ### Protótipo Site
 [🌐 Acesse o protótipo do site](https://lailacm.github.io/Casa-Floralles/)
+
+## Arquivos Importantes
+
+#### Diagrama de Classes (DC)
+<p align="center">
+  <img src="./assets/img/DC.png" alt="Diagrama de Classes" style="width:80%; height:auto;">
+</p>
+
+#### Diagrama de Casos de Uso (DCU)
+<p align="center">
+  <img src="./assets/img/DCU.png" alt="Diagrama de Casos de Uso" style="width:80%; height:auto;">
+</p>
+
+#### Modelo Entidade-Relacionamento e Diagrama Entidade-Relacionamento (MER-DER)
+<p align="center">
+  <img src="./assets/img/MERDER.drawio.png" alt="Diagrama de Casos de Uso" style="width:80%; height:auto;">
+</p>
+
+#### Trabalho de Conclusão de Curso (TCC) ABNT
+- [📄 Trabalho de Conclusão de Curso (TCC)](./assets/TCC.docx)

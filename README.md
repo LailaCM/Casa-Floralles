@@ -32,4 +32,4 @@ Manter as atividades organizadas é essencial para um bom atendimento e maior co
 [📱 Acesse o protótipo do app no Figma](https://www.figma.com/design/dW8D6QI2PlLLgf9FM9uDWR/Test--Copy-?node-id=0-1&t=RDrehTt3Zuusj4W7-1)
 
 ### Protótipo Site
-[🌐 Acesse o protótipo do site](./front/casafloralles.html)
+[🌐 Acesse o protótipo do site](https://lailacm.github.io/Casa-Floralles/)

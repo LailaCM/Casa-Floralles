@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Plantas{
+  id            Int @id @default(autoincrement())
+  nome_p        String @db.VarChar(100)
+  nome_c        String @db.VarChar(100)
+  especie       String @db.VarChar(100)
+  classe        String @db.VarChar(100)
+  origem        String @db.VarChar(100)
+  descricao     String @db.VarChar(100)
+  beneficios    String @db.VarChar(100)
+  img           String @db.VarChar(100)
+}

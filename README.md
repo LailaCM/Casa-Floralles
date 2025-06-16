@@ -48,8 +48,6 @@ Manter as atividades organizadas é essencial para um bom atendimento e maior co
   <img src="./web/assets/img/MERDER.drawio.png" alt="Diagrama de Casos de Uso" style="width:80%; height:auto;">
 </p>
 
-#### Trabalho de Conclusão de Curso (TCC) ABNT
-- [📄 Trabalho de Conclusão de Curso (TCC)](./web/assets/TCC.docx)
 
 ### Matriz SWOT 
 <p align="center"> 
@@ -61,3 +59,5 @@ Manter as atividades organizadas é essencial para um bom atendimento e maior co
   <img src="./web/assets/img/TDF.png" style="width:350px; height:auto;">
 </p>
 
+#### Trabalho de Conclusão de Curso (TCC) ABNT
+- [📄 Trabalho de Conclusão de Curso (TCC)](./web/assets/TCC.docx)

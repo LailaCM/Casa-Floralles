@@ -2,7 +2,7 @@
 O projeto **"Casa Floralles"** uma equipe composta por profissionais dedicadas. **Eloá Pereira Florêncio**, como ***Product Owner/Scrum Master (P.O./S.M.)***, é responsável por organizar o projeto e aplicar a metodologia ágil. **Beatriz Gabrielle Vizeu de Salles**, responsável pelo ***UX/UI***, foca na experiência do usuário e no design de uma interface intuitiva. **Laila Casadei Macêdo**, à frente do ***DevOps***, garante a infraestrutura e a eficiência técnica da plataforma. Juntas, buscamos desenvolver um sistema inovador e funcional para otimizar a rotina dos floricultores e melhorar a experiência dos clientes.
 
 <p align="center"> 
-  <img src="./assets/img/bannerfloralles.png" style="width:1000px; height:auto;">
+  <img src="./web/assets/img/bannerfloralles.png" style="width:1000px; height:auto;">
 </p>
 
 # Escolha da metodologia
@@ -35,18 +35,29 @@ Manter as atividades organizadas é essencial para um bom atendimento e maior co
 
 #### Diagrama de Classes (DC)
 <p align="center">
-  <img src="./assets/img/DC.png" alt="Diagrama de Classes" style="width:80%; height:auto;">
+  <img src="./web/assets/img/DC.png" alt="Diagrama de Classes" style="width:80%; height:auto;">
 </p>
 
 #### Diagrama de Casos de Uso (DCU)
 <p align="center">
-  <img src="./assets/img/DCU.png" alt="Diagrama de Casos de Uso" style="width:80%; height:auto;">
+  <img src="./web/assets/img/DCU.png" alt="Diagrama de Casos de Uso" style="width:80%; height:auto;">
 </p>
 
 #### Modelo Entidade-Relacionamento e Diagrama Entidade-Relacionamento (MER-DER)
 <p align="center">
-  <img src="./assets/img/MERDER.drawio.png" alt="Diagrama de Casos de Uso" style="width:80%; height:auto;">
+  <img src="./web/assets/img/MERDER.drawio.png" alt="Diagrama de Casos de Uso" style="width:80%; height:auto;">
 </p>
 
 #### Trabalho de Conclusão de Curso (TCC) ABNT
-- [📄 Trabalho de Conclusão de Curso (TCC)](./assets/TCC.docx)
+- [📄 Trabalho de Conclusão de Curso (TCC)](./web/assets/TCC.docx)
+
+### Matriz SWOT 
+<p align="center"> 
+  <img src="./web/assets/img/SWOT.png" style="width:500px; height:auto;">
+</p>
+
+### Triangulo de ferro 
+<p align="center"> 
+  <img src="./web/assets/img/TDF.png" style="width:350px; height:auto;">
+</p>
+

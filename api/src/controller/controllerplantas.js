@@ -41,18 +41,18 @@ const readOne = async (req, res) => {
 }
 
 const update = async (req, res) => {
+    const { id } = req.params;
+    const dados = req.body;
     try {
-        const plantas = await prisma.plantas.update({
-            where: {
-                id: Number(req.params.id)
-            },
-            data: req.body
+        const plantaAtualizada = await prisma.plantas.update({
+            where: { id: Number(id) },
+            data: dados
         });
-        return res.status(202).json(plantas);
+        res.json(plantaAtualizada);
     } catch (error) {
-        return res.status(400).json({ error: error.message });
+        res.status(400).json({ error: error.message });
     }
-}
+};
 
 const remove = async (req, res) => {
     try {

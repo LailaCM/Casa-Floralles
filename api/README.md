@@ -50,7 +50,7 @@ Execute as migrações para criar as tabelas no banco:
 
 ```bash
 npx prisma migrate dev --name init
-npx prisma generate]
+npx prisma generate
 
 corrija
 

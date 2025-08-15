@@ -86,10 +86,10 @@ function exibirMensagem(msg) {
  /* Atualizar da planta */
 function atualizarPlanta(id, dados) {
     fetch(`http://localhost:3000/plantas/${id}`, {
-        method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(dados)
-    })
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(dados)
+})
     .then(res => res.json())
     .then(res => {
         if (!res.sqlMessage) {
@@ -102,5 +102,8 @@ function atualizarPlanta(id, dados) {
         exibirMensagem('Erro ao conectar com o servidor!');
         console.error(err);
     });
+
 }
+
+
 

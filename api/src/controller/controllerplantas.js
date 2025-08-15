@@ -3,26 +3,22 @@ const prisma = new PrismaClient();
 
 const create = async (req, res) => {
     try {
-        const matricula = await prisma.plantas.create({
+        const novaPlanta = await prisma.plantas.create({
             data: {
-                nome_p:    req.body.nome_p, 
-                nome_c:    req.body.nome_c, 
-                especie:    req.body.especie, 
-                classe:     req.body.classe, 
-                origem:     req.body.origem, 
-                descricao:  req.body.descricao, 
-                beneficios: req.body.beneficios, 
-                img:        req.body.img, 
+                nome_p: req.body.nome_p,
+                nome_c: req.body.nome_c,
+                especie: req.body.especie,
+                classe: req.body.classe,
+                origem: req.body.origem,
+                descricao: req.body.descricao,
+                beneficios: req.body.beneficios,
+                img: req.body.img,
             }
         });
 
-        res.status(201).json(plantas);
+        return res.status(201).json(novaPlanta); 
     } catch (error) {
-        if (error.code == 'P2003') {
-            res.status(404).json({ erro: error.meta.field_name + ' não encontrada(o)' });
-        } else {
-            res.status(400).json(error);
-        }
+        return res.status(400).json({ error: 'Erro ao cadastrar planta.' });
     }
 };
 

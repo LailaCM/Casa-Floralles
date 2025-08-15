@@ -7,6 +7,7 @@
     --p6: #c5c5c5;
     --p7: rgba(0, 0, 0, 0.1);
     --p8: rgba(0, 0, 0, 0.6);
+    --p9: #df5271;
     --radius: 12px;
     --transition: 0.3s ease;
     --blur-bg: rgba(255, 255, 255, 0.6);
@@ -285,6 +286,67 @@ tr:nth-child(even) {
     margin-top: 8px;
     padding: 8px 0;
 }
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 250px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 15px;
+    flex: 1;
+}
+
+.card-body h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.card-actions button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.card-actions .detalhes {
+    background: var(--p2);
+    color: white;
+}
+
+.card-actions .excluir {
+    background: var(--p9);
+    color: white;
+}
+
 
 /* Responsividade */
 @media screen and (max-width: 768px) {

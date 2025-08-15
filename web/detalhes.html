@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Detalhes da Planta</title>
+</head>
+
+<body>
+    <header>
+        <img src="./assets/img/logo.png" alt="Logo Casa Floralles">
+        <h1>Detalhes da Planta</h1>
+    </header>
+
+    <main id="detalhes-container">
+    </main>
+
+    <footer>
+        <h2>Produzido por Casa Floralles!</h2>
+    </footer>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        if (!id) {
+            document.getElementById('detalhes-container').innerHTML = '<p>Planta não encontrada!</p>';
+        } else {
+            fetch(`http://localhost:3000/plantas/${id}`)
+                .then(res => res.json())
+                .then(planta => {
+                    const container = document.getElementById('detalhes-container');
+                    container.innerHTML = `
+        <div class="detalhes-card">
+            <img src="${planta.img}" alt="${planta.nome_p}" class="detalhes-img" onerror="this.src='default-image.jpg';">
+            <h2>${planta.nome_p} (${planta.nome_c})</h2>
+            <p><strong>Espécie:</strong> ${planta.especie}</p>
+            <p><strong>Classe:</strong> ${planta.classe}</p>
+            <p><strong>Origem:</strong> ${planta.origem}</p>
+            <p><strong>Descrição:</strong> ${planta.descricao}</p>
+            <p><strong>Benefícios:</strong> ${planta.beneficios}</p>
+            <a href="index.html"><button>Voltar</button></a>
+            <button id="btnAtualizar">Atualizar</button>
+        </div>
+        <div id="formAtualizarContainer"></div>
+    `;
+                    document.getElementById('btnAtualizar').onclick = () => {
+                        document.getElementById('formAtualizarContainer').innerHTML = `
+            <form id="formAtualizar" class="detalhes-card">
+                <input type="text" name="nome_p" value="${planta.nome_p}" required>
+                <input type="text" name="nome_c" value="${planta.nome_c}" required>
+                <input type="text" name="especie" value="${planta.especie}" required>
+                <input type="text" name="classe" value="${planta.classe}" required>
+                <input type="text" name="origem" value="${planta.origem}" required>
+                <textarea name="descricao" required>${planta.descricao}</textarea>
+                <textarea name="beneficios" required>${planta.beneficios}</textarea>
+                <input type="text" name="img" value="${planta.img}" required>
+                <button type="submit">Salvar</button>
+                <button type="button" id="cancelarAtualizacao">Cancelar</button>
+            </form>
+        `;
+                        document.getElementById('cancelarAtualizacao').onclick = () => {
+                            document.getElementById('formAtualizarContainer').innerHTML = '';
+                        };
+                        document.getElementById('formAtualizar').onsubmit = function (e) {
+                            e.preventDefault();
+                            const dados = {
+                                nome_p: this.nome_p.value,
+                                nome_c: this.nome_c.value,
+                                especie: this.especie.value,
+                                classe: this.classe.value,
+                                origem: this.origem.value,
+                                descricao: this.descricao.value,
+                                beneficios: this.beneficios.value,
+                                img: this.img.value
+                            };
+
+                            fetch(`http://localhost:3000/plantas/${id}`, {
+                                method: 'PUT',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(dados)
+                            })
+                                .then(res => res.json())
+                                .then(res => {
+                                    alert('Planta atualizada com sucesso!');
+                                    location.reload();
+                                })
+                                .catch(err => {
+                                    alert('Erro ao atualizar planta!');
+                                    console.error(err);
+                                });
+                        };
+                    };
+                })
+                .catch(err => {
+                    document.getElementById('detalhes-container').innerHTML = '<p>Erro ao carregar detalhes!</p>';
+                    console.error(err);
+                });
+        }
+    </script>
+</body>
+
+</html>

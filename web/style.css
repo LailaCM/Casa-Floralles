@@ -1,14 +1,18 @@
 :root {
-    --p1: #456d51; 
-    --p2: #34503d; 
-    --p3: #f4f4f4; 
-    --p4: #333;    
-    --p5: #fff;    
-    --p6: #999;    
-    --p7: rgba(0, 0, 0, 0.2); 
-    --p8: rgba(0, 0, 0, 0.8); 
+    --p1: #4CAF7A;
+    --p2: #3b8f65;
+    --p3: #f0f2f5;
+    --p4: #1f1f1f;
+    --p5: #ffffff;
+    --p6: #c5c5c5;
+    --p7: rgba(0, 0, 0, 0.1);
+    --p8: rgba(0, 0, 0, 0.6);
+    --radius: 12px;
+    --transition: 0.3s ease;
+    --blur-bg: rgba(255, 255, 255, 0.6);
 }
 
+/* Reset e fonte */
 * {
     margin: 0;
     padding: 0;
@@ -18,146 +22,100 @@
 
 body {
     width: 100vw;
-    height: 100vh;
-    background-color: var(--p3);
+    min-height: 100vh;
+    background: linear-gradient(135deg, #eafaf1, #d4ede1);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    color: var(--p4);
 }
 
 header {
     width: 100%;
-    height: 150px;
-    background-color: var(--p1);
+    height: 140px;
+    background: linear-gradient(135deg, var(--p1), var(--p2));
     color: var(--p5);
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    box-shadow: 0 2px 5px var(--p7);
+    box-shadow: 0 6px 15px var(--p7);
+    border-bottom-left-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
 }
 
 header img {
-    height: 100%;
-    width: auto; 
+    height: 80%;
+    width: auto;
     margin-left: 10px;
-    border-radius: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--p5);
 }
 
 header h1 {
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 1.9rem;
+    font-weight: 600;
     text-align: center;
-    flex-grow: 1; 
-    color: var(--p5);
+    flex-grow: 1;
 }
 
 footer {
     width: 100%;
-    background-color: var(--p4);
+    background-color: var(--p1);
     color: var(--p3);
     text-align: center;
     padding: 15px;
-}
-
-footer h2 {
-    color: #ddd;
-    margin: 0;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    border-top-left-radius: var(--radius);
+    border-top-right-radius: var(--radius);
 }
 
 main {
     width: 100%;
-    height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
 }
 
+/* Botões */
 button {
-    padding: 10px 15px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: var(--p1);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    font-weight: 500;
+    background: linear-gradient(135deg, var(--p1), var(--p2));
     color: var(--p5);
     cursor: pointer;
-    transition: 0.3s;
+    transition: var(--transition);
     margin-top: 10px;
+    box-shadow: 0 4px 10px var(--p7);
 }
 
 button:hover {
-    background-color: var(--p2);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 15px var(--p7);
+}
+ /* Botão para mostrar o formulário */
+
+#showForm {
+    background: var(--p5) !important; 
+    color: var(--p1) !important;  
+    border: 2px solid var(--p1);
 }
 
-form {
-    width: 350px;
-    background-color: var(--p5);
-    border-radius: 10px;
-    box-shadow: 0 4px 8px var(--p7);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    display: none;
+#showForm:hover {
+    background: var(--p1) !important;
+    color: var(--p5) !important;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 15px var(--p7);
 }
 
-input {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-    outline: none;
-    transition: 0.3s;
-}
-
-input:focus {
-    border-color: var(--p1);
-    box-shadow: 0 0 5px rgba(175, 79, 148, 0.3);
-}
-
-h2 {
-    color: var(--p4);
-    text-align: center;
-    padding: 10px;
-    text-shadow: 1px 1px 3px var(--p7);
-}
-
-table {
-    width: 95%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    background-color: var(--p5);
-    box-shadow: 0 4px 8px var(--p7);
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-th {
-    background-color: var(--p1);
-    color: var(--p5);
-    padding: 12px;
-}
-
-td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.tabela {
-    max-height: 400px;
-    overflow-y: auto;
-    border-radius: 5px;
-}
-
+/* Formulário de cadastro */
 .modal-overlay {
     background: var(--p8);
     width: 100%;
@@ -171,7 +129,7 @@ tr:nth-child(even) {
     z-index: 1000;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition);
 }
 
 .modal-overlay:not(.hide) {
@@ -183,12 +141,15 @@ tr:nth-child(even) {
     width: 90%;
     max-width: 500px;
     max-height: 80%;
-    background: var(--p5);
-    border-radius: 10px;
+    background: var(--blur-bg);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
     padding: 20px;
-    box-shadow: 0 4px 8px var(--p7);
+    box-shadow: 0 4px 20px var(--p7);
     text-align: left;
     overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    animation: fadeIn 0.3s ease;
 }
 
 .modal-wrapper form {
@@ -197,22 +158,20 @@ tr:nth-child(even) {
     gap: 15px;
 }
 
-.modal-wrapper button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.modal-wrapper input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+    background: rgba(255, 255, 255, 0.9);
 }
 
-.modal-wrapper button[type="submit"] {
-    background-color: var(--p1);
-    color: var(--p5);
-}
-
-.modal-wrapper button[type="submit"]:hover {
-    background-color: #8d4d77;
+.modal-wrapper input:focus {
+    border-color: var(--p1);
+    box-shadow: 0 0 8px rgba(76, 175, 122, 0.4);
 }
 
 .modal-wrapper .close-modal-btn {
@@ -221,9 +180,89 @@ tr:nth-child(even) {
 }
 
 .modal-wrapper .close-modal-btn:hover {
-    background-color: #999;
+    background-color: #e6e3e3;
 }
 
+/* Tabela de plantas */
+table {
+    width: 95%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background-color: var(--p5);
+    box-shadow: 0 4px 15px var(--p7);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+th {
+    background: linear-gradient(135deg, var(--p1), var(--p2));
+    color: var(--p5);
+    padding: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+    background-color: rgba(76, 175, 122, 0.05);
+}
+
+tr:nth-child(even) {
+    background-color: #fafafa;
+}
+
+/* Página de detalhes */
+.detalhes-card {
+    width: 90%;
+    max-width: 600px;
+    background: var(--blur-bg);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 20px var(--p7);
+    padding: 20px;
+    margin: 30px auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.detalhes-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px var(--p7);
+}
+
+.detalhes-card h2 {
+    font-size: 1.8rem;
+    color: var(--p4);
+    text-shadow: 1px 1px 2px var(--p7);
+}
+
+.detalhes-card p {
+    font-size: 1rem;
+    color: var(--p4);
+    text-align: left;
+    line-height: 1.4;
+}
+
+.detalhes-img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: var(--radius);
+    border: 3px solid var(--p5);
+    box-shadow: 0 4px 15px var(--p7);
+}
+
+/* Responsividade */
 @media screen and (max-width: 768px) {
     main {
         flex-direction: column;
@@ -236,5 +275,30 @@ tr:nth-child(even) {
 
     th, td {
         font-size: 14px;
+        padding: 8px;
+    }
+
+    .detalhes-card {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .detalhes-card h2 {
+        font-size: 1.5rem;
+    }
+
+    .detalhes-card p {
+        font-size: 0.95rem;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
     }
 }

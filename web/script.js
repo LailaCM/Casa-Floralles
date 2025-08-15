@@ -1,8 +1,16 @@
+// Abrir e fechar modal de cadastro
+document.getElementById('showForm').addEventListener('click', () => {
+    document.getElementById('modal').classList.remove('hide');
+});
+document.querySelector('.close-modal-btn').addEventListener('click', () => {
+    document.getElementById('modal').classList.add('hide');
+});
+
+// Cadastro de planta
 const formCadastro = document.getElementById('cadastro');
 formCadastro.addEventListener('submit', (event) => {
     event.preventDefault();
-    const plantasData = {
-        id: formCadastro.id.value,
+    const plantaData = {
         nome_p: formCadastro.nome_p.value,
         nome_c: formCadastro.nome_c.value,
         especie: formCadastro.especie.value,
@@ -12,128 +20,87 @@ formCadastro.addEventListener('submit', (event) => {
         beneficios: formCadastro.beneficios.value,
         img: formCadastro.img.value
     };
+
     fetch('http://localhost:3000/plantas', {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(plantasData)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(plantaData)
     })
-        .then(response => response.json())
-        .then(res => {
-            if (!res.sqlMessage) {
-                exibirMensagem('Planta atualizada com sucesso');
-            } else {
-                console.error('Erro SQL:', res.sqlMessage);
-                exibirMensagem('Erro ao atualizar planta!');
-            }
-        })
-        .catch(error => {
-            console.error('Erro na requisição:', error);
-            exibirMensagem('Erro ao conectar com o servidor!');
-        });
+    .then(res => res.json())
+    .then(res => {
+        if (!res.sqlMessage) {
+            exibirMensagem('Planta cadastrada com sucesso!');
+        } else {
+            console.error(res.sqlMessage);
+            exibirMensagem('Erro ao cadastrar planta!');
+        }
+    })
+    .catch(err => {
+        console.error(err);
+        exibirMensagem('Erro ao conectar com o servidor!');
+    });
 });
 
+// Carregar plantas cadastradas
 fetch('http://localhost:3000/plantas')
-    .then(response => response.json())
+    .then(res => res.json())
     .then(plantas => {
-        const tabelaPlantas = document.getElementById('plantas');
-        plantas.forEach(plantas => {
-            const linhaPlantas = document.createElement('tr');
-            linhaPlantas.innerHTML = `
-                <td hidden>${plantas.id}</td>
-                <td contenteditable="true">${plantas.nome_p}</td>
-                <td contenteditable="true">${plantas.nome_c}</td>
-                <td contenteditable="true">${plantas.especie}</td>
-                <td contenteditable="true">${plantas.classe}</td>
-                <td contenteditable="true">${plantas.origem}</td>
-                <td contenteditable="true">${plantas.descricao}</td>
-                <td contenteditable="true">${plantas.beneficios}</td>
+        const tbody = document.getElementById('plantas');
+        plantas.forEach(planta => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${planta.nome_p}</td>
+                <td>${planta.nome_c}</td>
                 <td>
-                    <img src="${plantas.img}" alt="Imagem da planta" style="width: 100px; height: auto;" onerror="this.src='default-image.jpg';">
-                </td>
-                <td>
-                    <button onclick="atualizarPlantas(this)">Atualizar</button>
-                    <button onclick="excluirPlantas(${plantas.id})">Deletar</button>
+                    <button onclick="verDetalhes(${planta.id})">Detalhes</button>
+                    <button onclick="excluirPlanta(${planta.id})">Deletar</button>
                 </td>
             `;
-            tabelaPlantas.appendChild(linhaPlantas);
+            tbody.appendChild(tr);
         });
     });
 
-function excluirPlantas(id) {
-    fetch(`http://localhost:3000/plantas/${id}`, {
-        method: 'DELETE'
-    })
-        .then(response => response.status)
-        .then(status => {
-            if (status === 204) {
-                exibirMensagem('Planta deletado com sucesso');
+// Função de redirecionar para detalhes.html
+function verDetalhes(id) {
+    window.location.href = `detalhes.html?id=${id}`;
+}
+
+// Deletar planta
+function excluirPlanta(id) {
+    fetch(`http://localhost:3000/plantas/${id}`, { method: 'DELETE' })
+        .then(res => {
+            if (res.status === 204) {
+                exibirMensagem('Planta deletada com sucesso!');
             } else {
-                exibirMensagem('Erro ao deletar planta');
+                exibirMensagem('Erro ao deletar planta.');
             }
         });
 }
 
-function atualizarPlantas(botao) {
-    let linhaPlantas = botao.closest('tr');
-    let celulas = linhaPlantas.cells;
-
-    let id = celulas[0].textContent.trim();
-
-    let plantaAtualizado = {
-        nome_p: celulas[1].textContent.trim(),
-        nome_c: celulas[2].textContent.trim(),
-        especie: celulas[3].textContent.trim(),
-        classe: celulas[4].textContent.trim(),
-        origem: celulas[5].textContent.trim(),
-        descricao: celulas[6].textContent.trim(),
-        beneficios: celulas[7].textContent.trim(),
-        img: celulas[8].querySelector('img')?.getAttribute('src') || ''
-    };
-
-    if (!plantaAtualizado.nome_p || !plantaAtualizado.nome_c || !plantaAtualizado.especie ||
-        !plantaAtualizado.classe || !plantaAtualizado.origem || !plantaAtualizado.descricao ||
-        !plantaAtualizado.beneficios || !plantaAtualizado.img) {
-        exibirMensagem('Erro: Todas as informações são obrigatórias!');
-        return;
-    }
-
+// Função para mostrar mensagens
+function exibirMensagem(msg) {
+    const elementoMsg = document.getElementById('msg');
+    elementoMsg.textContent = msg;
+    setTimeout(() => location.reload(), 1500);
+}
+ /* Atualizar da planta */
+function atualizarPlanta(id, dados) {
     fetch(`http://localhost:3000/plantas/${id}`, {
         method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(plantaAtualizado)
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(dados)
     })
-        .then(response => response.json())
-        .then(res => {
-            if (!res.sqlMessage) {
-                exibirMensagem('Planta atualizada com sucesso');
-            } else {
-                console.error('Erro SQL:', res.sqlMessage);
-                exibirMensagem('Erro ao atualizar planta!');
-            }
-        })
-        .catch(error => {
-            console.error('Erro na requisição:', error);
-            exibirMensagem('Erro ao conectar com o servidor!');
-        });
+    .then(res => res.json())
+    .then(res => {
+        if (!res.sqlMessage) {
+            exibirMensagem('Planta atualizada com sucesso!');
+        } else {
+            exibirMensagem('Erro ao atualizar planta!');
+        }
+    })
+    .catch(err => {
+        exibirMensagem('Erro ao conectar com o servidor!');
+        console.error(err);
+    });
 }
 
-
-document.getElementById('showForm').addEventListener('click', function () {
-    document.getElementById('modal').classList.remove('hide');
-});
-
-document.querySelector('.close-modal-btn').addEventListener('click', function () {
-    document.getElementById('modal').classList.add('hide');
-});
-
-function exibirMensagem(mensagem) {
-    const elementoMensagem = document.getElementById('msg');
-    elementoMensagem.innerHTML = mensagem;
-    setTimeout(() => {
-        window.location.reload();
-    }, 1500);
-}

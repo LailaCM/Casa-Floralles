@@ -52,6 +52,14 @@ Execute as migrações para criar as tabelas no banco:
 ```bash
 npx prisma migrate dev --name init
 npx prisma generate
+<<<<<<< HEAD
+
+corrija
+
+npm install jsonwebtoken
+npm install bcrypt
+=======
+>>>>>>> 9bc9dfb1d33e0b9feabb1f0f3d203fac199eee7a
 ```
 
 ---

@@ -5,7 +5,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
     const msg = document.getElementById('loginMsg');
 
     try {
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch('http://localhost:3000/index', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -17,7 +17,7 @@ document.getElementById('loginForm').addEventListener('submit', async function (
             localStorage.setItem('token', data.token);
             msg.textContent = "Login realizado com sucesso!";
             msg.style.color = "green";
-            setTimeout(() => window.location.href = "index.html", 1000);
+            setTimeout(() => window.location.href = "home.html", 1000);
         } else {
             msg.textContent = data.error || "E-mail ou senha inválidos.";
             msg.style.color = "red";

@@ -1,12 +1,12 @@
 const token = getToken();
 if (!token) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 function getToken() {
     return localStorage.getItem('token');
 }
 if (!getToken()) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 document.getElementById('showForm').addEventListener('click', () => {
     document.getElementById('modal').classList.remove('hide');

@@ -13,5 +13,5 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.listen(3000, () => {
     console.log('Servidor rodando na porta 3000');
-    console.log('Swagger disponível em http://localhost:3000/api-docs');
+    console.log('Swagger disponível em https://floralles-api.vercel.app/api-docs');
 });

@@ -41,7 +41,7 @@ formCadastro.addEventListener('submit', (event) => {
         img: formCadastro.img.value
     };
 
-    fetch('http://localhost:3000/plantas', {
+    fetch('https://floralles-api.vercel.app/plantas', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ formCadastro.addEventListener('submit', (event) => {
 });
 
 // Exibir plantas
-fetch('http://localhost:3000/plantas')
+fetch('https://floralles-api.vercel.app/plantas')
     .then(res => res.json())
     .then(plantas => {
         const container = document.getElementById('plantas');
@@ -90,7 +90,7 @@ function verDetalhes(id) {
 }
 
 function excluirPlanta(id) {
-    fetch(`http://localhost:3000/plantas/${id}`, {
+    fetch(`https://floralles-api.vercel.app/plantas/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': 'Bearer ' + token }
     })

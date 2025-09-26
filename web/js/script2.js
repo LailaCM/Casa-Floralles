@@ -20,7 +20,7 @@ function exibirMensagem(msg, cor = "#4CAF7A") {
 if (!id) {
     document.getElementById('detalhes-container').innerHTML = '<p>Planta não encontrada!</p>';
 } else {
-    fetch(`http://localhost:3000/plantas/${id}`)
+    fetch(`https://floralles-api.vercel.app/plantas/${id}`)
         .then(async res => {
             if (!res.ok) {
                 throw new Error(`Erro ao buscar planta: ${res.status}`);
@@ -97,7 +97,7 @@ if (!id) {
 
 async function atualizarPlanta(id, dados) {
     try {
-        const res = await fetch(`http://localhost:3000/plantas/${id}`, {
+        const res = await fetch(`https://floralles-api.vercel.app/plantas/${id}`, {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',

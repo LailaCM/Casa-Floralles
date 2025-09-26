@@ -15,7 +15,7 @@ const options = {
     },
     servers: [
       {
-        url: 'http://localhost:3000',
+        url: 'https://floralles-api.vercel.app',
         description: 'Servidor local',
       },
     ],

@@ -7,7 +7,6 @@ const prisma = new PrismaClient();
 
 const Plantas = require('./controller/controllerplantas');
 
-// Rota de registro de usuário
 routes.post('/register', async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -21,7 +20,6 @@ routes.post('/register', async (req, res) => {
     }
 });
 
-// Rota de login
 routes.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const user = await prisma.user.findUnique({ where: { email } });
@@ -34,12 +32,10 @@ routes.post('/login', async (req, res) => {
     res.json({ token });
 });
 
-// Rotas protegidas
 routes.post('/plantas', validate, Plantas.create);
 routes.put('/plantas/:id', validate, Plantas.update);
 routes.delete('/plantas/:id', validate, Plantas.remove);
 
-// Rotas públicas
 routes.get('/plantas', Plantas.read);
 routes.get('/plantas/:id', Plantas.readOne);
 

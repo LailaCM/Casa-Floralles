@@ -7,6 +7,20 @@ const prisma = new PrismaClient();
 
 const Plantas = require('./controller/controllerplantas');
 
+routes.get('/', (req, res) => {
+    res.json({ message: 'API de Gerenciamento de Plantas',
+        routes:[
+            { method: 'POST', path: '/register', description: 'Registrar um novo usuário' },
+            { method: 'POST', path: '/login', description: 'Login de usuário' },
+            { method: 'POST', path: '/plantas', description: 'Criar uma nova planta (autenticado)' },
+            { method: 'PUT', path: '/plantas/:id', description: 'Atualizar uma planta existente (autenticado)' },
+            { method: 'DELETE', path: '/plantas/:id', description: 'Deletar uma planta (autenticado)' },
+            { method: 'GET', path: '/plantas', description: 'Listar todas as plantas' },
+            { method: 'GET', path: '/plantas/:id', description: 'Obter detalhes de uma planta específica' }
+        ]
+     });
+});
+
 routes.post('/register', async (req, res) => {
     const { email, password } = req.body;
     try {

@@ -1,18 +1,29 @@
-const token = getToken();
+const token = localStorage.getItem('token');
+const username = localStorage.getItem('userName');
+
 if (!token) {
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
-function getToken() {
-    return localStorage.getItem('token');
+
+if (username) {
+    document.getElementById('username').textContent = username;
 }
-if (!getToken()) {
-    window.location.href = "login.html";
-}
+
+// Mostrar formulário
 document.getElementById('showForm').addEventListener('click', () => {
     document.getElementById('modal').classList.remove('hide');
 });
+
+// Fechar formulário
 document.querySelector('.close-modal-btn').addEventListener('click', () => {
     document.getElementById('modal').classList.add('hide');
+});
+
+// Logout
+document.getElementById('logoutBtn').addEventListener('click', () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('userName');
+    window.location.href = 'index.html';
 });
 
 // Cadastro de planta
@@ -38,20 +49,21 @@ formCadastro.addEventListener('submit', (event) => {
         },
         body: JSON.stringify(plantaData)
     })
-        .then(res => res.json())
-        .then(res => {
-            if (!res.sqlMessage && !res.error) {
-                exibirMensagem('Planta cadastrada com sucesso!');
-            } else {
-                exibirMensagem('Erro ao cadastrar planta!');
-            }
-        })
-        .catch(err => {
-            exibirMensagem('Erro ao conectar com o servidor!');
-            console.error(err);
-        });
+    .then(res => res.json())
+    .then(res => {
+        if (!res.sqlMessage && !res.error) {
+            exibirMensagem('Planta cadastrada com sucesso!');
+        } else {
+            exibirMensagem('Erro ao cadastrar planta!');
+        }
+    })
+    .catch(err => {
+        exibirMensagem('Erro ao conectar com o servidor!');
+        console.error(err);
+    });
 });
 
+// Exibir plantas
 fetch('http://localhost:3000/plantas')
     .then(res => res.json())
     .then(plantas => {
@@ -59,20 +71,18 @@ fetch('http://localhost:3000/plantas')
         plantas.forEach(planta => {
             const card = document.createElement('div');
             card.classList.add('card');
-
             card.innerHTML = `
-        <img src="${planta.img}" alt="${planta.nome_p}">
-        <div class="card-body">
-            <h3>${planta.nome_p}</h3>
-        </div>
-        <div class="card-actions">
-            <button class="detalhes" onclick="verDetalhes(${planta.id})">Detalhes</button>
-            <button class="excluir" onclick="excluirPlanta(${planta.id})">Excluir</button>
-        </div>
-    `;
+                <img src="${planta.img}" alt="${planta.nome_p}">
+                <div class="card-body">
+                    <h3>${planta.nome_p}</h3>
+                </div>
+                <div class="card-actions">
+                    <button class="detalhes" onclick="verDetalhes(${planta.id})">Detalhes</button>
+                    <button class="excluir" onclick="excluirPlanta(${planta.id})">Excluir</button>
+                </div>
+            `;
             container.appendChild(card);
         });
-
     });
 
 function verDetalhes(id) {
@@ -82,17 +92,15 @@ function verDetalhes(id) {
 function excluirPlanta(id) {
     fetch(`http://localhost:3000/plantas/${id}`, {
         method: 'DELETE',
-        headers: {
-            'Authorization': 'Bearer ' + token
-        }
+        headers: { 'Authorization': 'Bearer ' + token }
     })
-        .then(res => {
-            if (res.status === 204) {
-                exibirMensagem('Planta deletada com sucesso!');
-            } else {
-                exibirMensagem('Erro ao deletar planta.');
-            }
-        });
+    .then(res => {
+        if (res.status === 204) {
+            exibirMensagem('Planta deletada com sucesso!');
+        } else {
+            exibirMensagem('Erro ao deletar planta.');
+        }
+    });
 }
 
 function exibirMensagem(msg) {
@@ -100,27 +108,3 @@ function exibirMensagem(msg) {
     elementoMsg.textContent = msg;
     setTimeout(() => location.reload(), 1500);
 }
-
-function atualizarPlanta(id, dados) {
-    fetch(`http://localhost:3000/plantas/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token
-        },
-        body: JSON.stringify(dados)
-    })
-        .then(res => res.json())
-        .then(res => {
-            if (!res.sqlMessage && !res.error) {
-                exibirMensagem('Planta atualizada com sucesso!');
-            } else {
-                exibirMensagem('Erro ao atualizar planta!');
-            }
-        })
-        .catch(err => {
-            exibirMensagem('Erro ao conectar com o servidor!');
-            console.error(err);
-        });
-}
-

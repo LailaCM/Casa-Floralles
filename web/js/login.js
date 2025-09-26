@@ -1,5 +1,6 @@
 document.getElementById('loginForm').addEventListener('submit', async function (e) {
     e.preventDefault();
+
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
     const msg = document.getElementById('loginMsg');
@@ -15,9 +16,10 @@ document.getElementById('loginForm').addEventListener('submit', async function (
 
         if (response.ok && data.token) {
             localStorage.setItem('token', data.token);
+            localStorage.setItem('userName', data.userName || email); // Salva o nome do usuário ou email
             msg.textContent = "Login realizado com sucesso!";
             msg.style.color = "green";
-            setTimeout(() => window.location.href = "index.html", 1000);
+            setTimeout(() => window.location.href = "home.html", 1000);
         } else {
             msg.textContent = data.error || "E-mail ou senha inválidos.";
             msg.style.color = "red";
@@ -27,3 +29,11 @@ document.getElementById('loginForm').addEventListener('submit', async function (
         msg.style.color = "red";
     }
 });
+
+// Redirecionamento automático se o token já existir
+(async function validaToken() {
+    const token = localStorage.getItem('token');
+    if (token) {
+        window.location.href = 'home.html';
+    }
+})();

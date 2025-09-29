@@ -9,12 +9,14 @@ if (username) {
     document.getElementById('username').textContent = username;
 }
 
-// Mostrar formulário
+function getToken() {
+    return localStorage.getItem('token');
+}
+
 document.getElementById('showForm').addEventListener('click', () => {
     document.getElementById('modal').classList.remove('hide');
 });
 
-// Fechar formulário
 document.querySelector('.close-modal-btn').addEventListener('click', () => {
     document.getElementById('modal').classList.add('hide');
 });
@@ -26,7 +28,6 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
     window.location.href = 'index.html';
 });
 
-// Cadastro de planta
 const formCadastro = document.getElementById('cadastro');
 formCadastro.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -63,7 +64,6 @@ formCadastro.addEventListener('submit', (event) => {
     });
 });
 
-// Exibir plantas
 fetch('https://floralles-api.vercel.app/plantas')
     .then(res => res.json())
     .then(plantas => {
@@ -92,14 +92,20 @@ function verDetalhes(id) {
 function excluirPlanta(id) {
     fetch(`https://floralles-api.vercel.app/plantas/${id}`, {
         method: 'DELETE',
-        headers: { 'Authorization': 'Bearer ' + token }
+        headers: { 'Authorization': 'Bearer ' + getToken() }
     })
     .then(res => {
         if (res.status === 204) {
             exibirMensagem('Planta deletada com sucesso!');
+        } else if (res.status === 401) {
+            exibirMensagem('Sem permissão para deletar!');
         } else {
             exibirMensagem('Erro ao deletar planta.');
         }
+    })
+    .catch(err => {
+        exibirMensagem('Erro ao conectar com o servidor!');
+        console.error(err);
     });
 }
 

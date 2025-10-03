@@ -1,0 +1,517 @@
+{
+  "id": "640d1a1f-9559-49ee-b569-ef137efecd89",
+  "version": "2.0",
+  "name": "completo",
+  "url": "https://lailacm.github.io/Casa-Floralles/web/index.html",
+  "tests": [{
+    "id": "359876e2-d473-419e-83aa-736fed9901b2",
+    "name": "Completo",
+    "commands": [{
+      "id": "f48e502c-e1b5-4670-8635-c0aaab9eeded",
+      "comment": "",
+      "command": "open",
+      "target": "https://lailacm.github.io/Casa-Floralles/web/index.html",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "76b23c3a-4fa7-49e6-8ec6-852fbfa17d70",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "550x692",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c45edc61-18a0-45a4-b85c-ce6eb73d46ff",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "751db4d9-93b5-40ac-8216-19a7945b909f",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8908515f-056e-498b-ad8a-452ad65ce1ee",
+      "comment": "",
+      "command": "click",
+      "target": "css=body",
+      "targets": [
+        ["css=body", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "acf366d4-5f81-4f11-98ea-5cff6cb281db",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "adf774d8-aee7-4758-b662-1c4b14ce31ea",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=termos",
+      "targets": [
+        ["id=termos", "id"],
+        ["css=#termos", "css:finder"],
+        ["xpath=//input[@id='termos']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "4.5999755859375,7.899993896484375"
+    }, {
+      "id": "fb02dcbb-5eb2-4f5d-b25e-adc0e2c387e6",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=termos",
+      "targets": [
+        ["id=termos", "id"],
+        ["css=#termos", "css:finder"],
+        ["xpath=//input[@id='termos']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "4.5999755859375,7.899993896484375"
+    }, {
+      "id": "a5db2b31-1411-4ead-a181-92b7328b4898",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=termos",
+      "targets": [
+        ["id=termos", "id"],
+        ["css=#termos", "css:finder"],
+        ["xpath=//input[@id='termos']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": "4.5999755859375,7.899993896484375"
+    }, {
+      "id": "e6be82b3-3187-4a52-b9e4-01db88b69bfb",
+      "comment": "",
+      "command": "click",
+      "target": "id=loginForm",
+      "targets": [
+        ["id=loginForm", "id"],
+        ["css=#loginForm", "css:finder"],
+        ["xpath=//form[@id='loginForm']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a32c223-c950-4202-856b-8d2127f5e010",
+      "comment": "",
+      "command": "click",
+      "target": "id=termos",
+      "targets": [
+        ["id=termos", "id"],
+        ["css=#termos", "css:finder"],
+        ["xpath=//input[@id='termos']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/div/input", "xpath:idRelative"],
+        ["xpath=//div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0fd7d94-7d58-48cc-99cc-222f029b5d57",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm']/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Entrar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9ce95ebf-9167-4b0e-99f1-1eb241a2c3db",
+      "comment": "",
+      "command": "click",
+      "target": "id=showForm",
+      "targets": [
+        ["id=showForm", "id"],
+        ["css=#showForm", "css:finder"],
+        ["xpath=//button[@id='showForm']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Cadastrar Nova Planta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5b7fd923-fe7b-45c3-8f3b-165e0fd238b3",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome_p",
+      "targets": [
+        ["id=nome_p", "id"],
+        ["name=nome_p", "name"],
+        ["css=#nome_p", "css:finder"],
+        ["xpath=//input[@id='nome_p']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0fa17321-5db5-4a47-9713-f170bc2226cb",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome_p",
+      "targets": [
+        ["id=nome_p", "id"],
+        ["name=nome_p", "name"],
+        ["css=#nome_p", "css:finder"],
+        ["xpath=//input[@id='nome_p']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Babosa"
+    }, {
+      "id": "7ea63369-e354-4386-8f2f-20b999f79ace",
+      "comment": "",
+      "command": "click",
+      "target": "id=nome_c",
+      "targets": [
+        ["id=nome_c", "id"],
+        ["name=nome_c", "name"],
+        ["css=#nome_c", "css:finder"],
+        ["xpath=//input[@id='nome_c']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4bfc1547-222d-4701-98c6-6cbcf4c795ea",
+      "comment": "",
+      "command": "type",
+      "target": "id=nome_c",
+      "targets": [
+        ["id=nome_c", "id"],
+        ["name=nome_c", "name"],
+        ["css=#nome_c", "css:finder"],
+        ["xpath=//input[@id='nome_c']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Aloe vera"
+    }, {
+      "id": "9c4e3374-84e7-44f5-bbf8-fd6203c9e88f",
+      "comment": "",
+      "command": "click",
+      "target": "id=especie",
+      "targets": [
+        ["id=especie", "id"],
+        ["name=especie", "name"],
+        ["css=#especie", "css:finder"],
+        ["xpath=//input[@id='especie']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1f76f3c8-7700-4ef9-8ac0-bd97f855b194",
+      "comment": "",
+      "command": "type",
+      "target": "id=especie",
+      "targets": [
+        ["id=especie", "id"],
+        ["name=especie", "name"],
+        ["css=#especie", "css:finder"],
+        ["xpath=//input[@id='especie']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "Asphodelaceae"
+    }, {
+      "id": "20f775e2-69fe-4590-af08-c1af7b1ac284",
+      "comment": "",
+      "command": "click",
+      "target": "id=classe",
+      "targets": [
+        ["id=classe", "id"],
+        ["name=classe", "name"],
+        ["css=#classe", "css:finder"],
+        ["xpath=//input[@id='classe']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb312fb0-beb0-42dd-b21e-1dad19c7b3f1",
+      "comment": "",
+      "command": "type",
+      "target": "id=classe",
+      "targets": [
+        ["id=classe", "id"],
+        ["name=classe", "name"],
+        ["css=#classe", "css:finder"],
+        ["xpath=//input[@id='classe']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[4]", "xpath:idRelative"],
+        ["xpath=//input[4]", "xpath:position"]
+      ],
+      "value": "Liliopsida"
+    }, {
+      "id": "40101633-bc5d-49c8-889c-41e79335572a",
+      "comment": "",
+      "command": "click",
+      "target": "id=origem",
+      "targets": [
+        ["id=origem", "id"],
+        ["name=origem", "name"],
+        ["css=#origem", "css:finder"],
+        ["xpath=//input[@id='origem']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "83e06f12-02fd-43b7-a34f-87e647387c0a",
+      "comment": "",
+      "command": "type",
+      "target": "id=origem",
+      "targets": [
+        ["id=origem", "id"],
+        ["name=origem", "name"],
+        ["css=#origem", "css:finder"],
+        ["xpath=//input[@id='origem']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "Norte da África"
+    }, {
+      "id": "76557984-21f9-4bdc-885e-ad316fb0a972",
+      "comment": "",
+      "command": "click",
+      "target": "id=descricao",
+      "targets": [
+        ["id=descricao", "id"],
+        ["name=descricao", "name"],
+        ["css=#descricao", "css:finder"],
+        ["xpath=//input[@id='descricao']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0c1f5beb-3e6a-47c6-acf4-8f41260bae14",
+      "comment": "",
+      "command": "type",
+      "target": "id=descricao",
+      "targets": [
+        ["id=descricao", "id"],
+        ["name=descricao", "name"],
+        ["css=#descricao", "css:finder"],
+        ["xpath=//input[@id='descricao']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[6]", "xpath:idRelative"],
+        ["xpath=//input[6]", "xpath:position"]
+      ],
+      "value": "Amplamente utilizada para fins medicinais e cosméticos."
+    }, {
+      "id": "b44ad5dc-9569-4c95-a966-31c6e2fcb63a",
+      "comment": "",
+      "command": "click",
+      "target": "id=beneficios",
+      "targets": [
+        ["id=beneficios", "id"],
+        ["name=beneficios", "name"],
+        ["css=#beneficios", "css:finder"],
+        ["xpath=//input[@id='beneficios']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e6c3255-4825-4f75-a278-b91625a63176",
+      "comment": "",
+      "command": "type",
+      "target": "id=beneficios",
+      "targets": [
+        ["id=beneficios", "id"],
+        ["name=beneficios", "name"],
+        ["css=#beneficios", "css:finder"],
+        ["xpath=//input[@id='beneficios']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[7]", "xpath:idRelative"],
+        ["xpath=//input[7]", "xpath:position"]
+      ],
+      "value": "Auxilia na cicatrização e possui propriedades anti-inflamatórias."
+    }, {
+      "id": "91996cb1-60c2-4071-9e61-9e49eae0058d",
+      "comment": "",
+      "command": "click",
+      "target": "id=img",
+      "targets": [
+        ["id=img", "id"],
+        ["name=img", "name"],
+        ["css=#img", "css:finder"],
+        ["xpath=//input[@id='img']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1cca79e6-f4e2-4f3a-b155-ea2217cbb9f9",
+      "comment": "",
+      "command": "type",
+      "target": "id=img",
+      "targets": [
+        ["id=img", "id"],
+        ["name=img", "name"],
+        ["css=#img", "css:finder"],
+        ["xpath=//input[@id='img']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/input[8]", "xpath:idRelative"],
+        ["xpath=//input[8]", "xpath:position"]
+      ],
+      "value": "https://png.pngtree.com/png-vector/20240221/ourmid/pngtree-aloe-vera-png-image_11868652.png"
+    }, {
+      "id": "0f7aefa2-30e6-461e-a59f-52925c9fb2ce",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(17)",
+      "targets": [
+        ["css=button:nth-child(17)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='cadastro']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "70f8ec3c-f0a4-4d21-a099-c196da1b726e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card:nth-child(2) .detalhes",
+      "targets": [
+        ["css=.card:nth-child(2) .detalhes", "css:finder"],
+        ["xpath=//button[@onclick='verDetalhes(16)']", "xpath:attributes"],
+        ["xpath=//div[@id='plantas']/div[2]/div[2]/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "441ea96f-a629-445a-a794-c97205b558de",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnAtualizar",
+      "targets": [
+        ["id=btnAtualizar", "id"],
+        ["css=#btnAtualizar", "css:finder"],
+        ["xpath=//button[@id='btnAtualizar']", "xpath:attributes"],
+        ["xpath=//main[@id='detalhes-container']/div/button[2]", "xpath:idRelative"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Atualizar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "16e23246-3c42-409e-9456-ef1954382028",
+      "comment": "",
+      "command": "click",
+      "target": "name=origem",
+      "targets": [
+        ["name=origem", "name"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='origem']", "xpath:attributes"],
+        ["xpath=//form[@id='formAtualizar']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b742e6e-c21b-442e-8256-43256c933a79",
+      "comment": "",
+      "command": "type",
+      "target": "name=origem",
+      "targets": [
+        ["name=origem", "name"],
+        ["css=input:nth-child(5)", "css:finder"],
+        ["xpath=//input[@name='origem']", "xpath:attributes"],
+        ["xpath=//form[@id='formAtualizar']/input[5]", "xpath:idRelative"],
+        ["xpath=//input[5]", "xpath:position"]
+      ],
+      "value": "África do Norte"
+    }, {
+      "id": "68f54f0d-7207-48b0-aa52-fcc3d40920e2",
+      "comment": "",
+      "command": "click",
+      "target": "css=#formAtualizar > button:nth-child(9)",
+      "targets": [
+        ["css=#formAtualizar > button:nth-child(9)", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='formAtualizar']/button", "xpath:idRelative"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Salvar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b4392e82-54bd-4736-a84f-36ddb7d05f2d",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnVoltar",
+      "targets": [
+        ["id=btnVoltar", "id"],
+        ["css=#btnVoltar", "css:finder"],
+        ["xpath=//button[@id='btnVoltar']", "xpath:attributes"],
+        ["xpath=//main[@id='detalhes-container']/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Voltar')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0f3d8479-e698-40f1-8a83-edab6eba66ff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.card:nth-child(2) .excluir",
+      "targets": [
+        ["css=.card:nth-child(2) .excluir", "css:finder"],
+        ["xpath=//button[@onclick='excluirPlanta(16)']", "xpath:attributes"],
+        ["xpath=//div[@id='plantas']/div[2]/div[2]/button[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/div[2]/button[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "efaa14e7-3938-4a5f-a066-9ae433bb451d",
+      "comment": "",
+      "command": "click",
+      "target": "id=logoutBtn",
+      "targets": [
+        ["id=logoutBtn", "id"],
+        ["css=#logoutBtn", "css:finder"],
+        ["xpath=//button[@id='logoutBtn']", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Sair')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "4fc7b280-8a57-41f7-ba27-aac47d0b2b05",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://lailacm.github.io/Casa-Floralles/web/index.html"],
+  "plugins": []
+}

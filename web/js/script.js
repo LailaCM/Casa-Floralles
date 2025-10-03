@@ -1,6 +1,7 @@
 const token = localStorage.getItem('token');
 const username = localStorage.getItem('userName');
 
+// Se não tiver token, volta pra login
 if (!token) {
     window.location.href = "index.html";
 }
@@ -13,10 +14,12 @@ function getToken() {
     return localStorage.getItem('token');
 }
 
+// Abrir modal
 document.getElementById('showForm').addEventListener('click', () => {
     document.getElementById('modal').classList.remove('hide');
 });
 
+// Fechar modal
 document.querySelector('.close-modal-btn').addEventListener('click', () => {
     document.getElementById('modal').classList.add('hide');
 });
@@ -28,19 +31,24 @@ document.getElementById('logoutBtn').addEventListener('click', () => {
     window.location.href = 'index.html';
 });
 
+// Cadastro de planta
 const formCadastro = document.getElementById('cadastro');
 formCadastro.addEventListener('submit', (event) => {
     event.preventDefault();
+
+    // Coleta de valores SEM erro
     const plantaData = {
-        nome_p: formCadastro.nome_p.value,
-        nome_c: formCadastro.nome_c.value,
-        especie: formCadastro.especie.value,
-        classe: formCadastro.classe.value,
-        origem: formCadastro.origem.value,
-        descricao: formCadastro.descricao.value,
-        beneficios: formCadastro.beneficios.value,
-        img: formCadastro.img.value
+        nome_p: document.getElementById("nome_p").value,
+        nome_c: document.getElementById("nome_c").value,
+        especie: document.getElementById("especie").value,
+        classe: document.getElementById("classe").value,
+        origem: document.getElementById("origem").value,
+        descricao: document.getElementById("descricao").value,
+        beneficios: document.getElementById("beneficios").value,
+        img: document.getElementById("img").value
     };
+
+    console.log("Enviando planta:", plantaData);
 
     fetch('https://floralles-api.vercel.app/plantas', {
         method: 'POST',
@@ -52,6 +60,7 @@ formCadastro.addEventListener('submit', (event) => {
     })
     .then(res => res.json())
     .then(res => {
+        console.log("Resposta da API:", res);
         if (!res.sqlMessage && !res.error) {
             exibirMensagem('Planta cadastrada com sucesso!');
         } else {
@@ -68,6 +77,7 @@ fetch('https://floralles-api.vercel.app/plantas')
     .then(res => res.json())
     .then(plantas => {
         const container = document.getElementById('plantas');
+        container.innerHTML = ""; 
         plantas.forEach(planta => {
             const card = document.createElement('div');
             card.classList.add('card');
@@ -85,6 +95,7 @@ fetch('https://floralles-api.vercel.app/plantas')
         });
     });
 
+// Funções extras
 function verDetalhes(id) {
     window.location.href = `detalhes.html?id=${id}`;
 }

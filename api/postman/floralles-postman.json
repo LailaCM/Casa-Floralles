@@ -1,0 +1,188 @@
+{
+  "info": {
+    "name": "Floralles API",
+    "_postman_id": "floralles-collection",
+    "description": "Postman collection for Casa-Floralles API with automated tests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {"mode":"raw","raw":"{\n  \"email\": \"teste@example.com\",\n  \"password\": \"senha123\"\n}"},
+        "url": {"raw":"{{base_url}}/register","host":["{{base_url}}"],"path":["register"]}
+      },
+      "response": []
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [{"key":"Content-Type","value":"application/json"}],
+        "body": {"mode":"raw","raw":"{\n  \"email\": \"teste@example.com\",\n  \"password\": \"senha123\"\n}"},
+        "url": {"raw":"{{base_url}}/login","host":["{{base_url}}"],"path":["login"]}
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Login successful - status 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "var json = pm.response.json();",
+              "if (json.token) {",
+              "    pm.environment.set('jwt', json.token);",
+              "    console.log('Saved jwt to environment');",
+              "} else {",
+              "    console.warn('No token in response');",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "Criar Planta (autenticado)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {"key":"Content-Type","value":"application/json"},
+          {"key":"Authorization","value":"Bearer {{jwt}}"}
+        ],
+        "body": {"mode":"raw","raw":"{\n  \"nome_p\": \"Rosa\",\n  \"nome_c\": \"Rosa rubiginosa\",\n  \"especie\": \"Rosaceae\",\n  \"classe\": \"Magnoliopsida\",\n  \"origem\": \"Europa\",\n  \"descricao\": \"Flor ornamental\",\n  \"beneficios\": \"Beleza, aroma\",\n  \"img\": \"https://example.com/rosa.jpg\"\n}"},
+        "url": {"raw":"{{base_url}}/plantas","host":["{{base_url}}"],"path":["plantas"]}
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Create planta - status 201\", function () {",
+              "    pm.response.to.have.status(201);",
+              "});",
+              "var json = pm.response.json();",
+              "if (json.id) {",
+              "    pm.environment.set('plant_id', json.id);",
+              "    console.log('Saved plant_id to environment');",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "Listar Plantas",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {"raw":"{{base_url}}/plantas","host":["{{base_url}}"],"path":["plantas"]}
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"List plantas - status 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response is an array\", function() {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json).to.be.an('array');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "Obter Planta por ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {"raw":"{{base_url}}/plantas/{{plant_id}}","host":["{{base_url}}"],"path":["plantas","{{plant_id}}"]}
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Get planta by id - status 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "pm.test(\"Response has id\", function() {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json.id).to.eql(parseInt(pm.environment.get('plant_id')));",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "Atualizar Planta (autenticado)",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {"key":"Content-Type","value":"application/json"},
+          {"key":"Authorization","value":"Bearer {{jwt}}"}
+        ],
+        "body": {"mode":"raw","raw":"{\n  \"descricao\": \"Descrição atualizada via Postman\"\n}"},
+        "url": {"raw":"{{base_url}}/plantas/{{plant_id}}","host":["{{base_url}}"],"path":["plantas","{{plant_id}}"]}
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Update planta - status 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "Deletar Planta (autenticado)",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {"key":"Authorization","value":"Bearer {{jwt}}"}
+        ],
+        "url": {"raw":"{{base_url}}/plantas/{{plant_id}}","host":["{{base_url}}"],"path":["plantas","{{plant_id}}"]}
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Delete planta - status 204 or 200\", function () {",
+              "    pm.expect([200,204]).to.include(pm.response.code);",
+              "});",
+              "pm.environment.unset('plant_id');"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "response": []
+    }
+  ],
+  "event": [],
+  "variable": [],
+  "auth": {},
+  "protocolProfileBehavior": {}
+}

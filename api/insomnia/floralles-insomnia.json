@@ -1,0 +1,116 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-10-10T00:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v2025.5.0",
+  "resources": [
+    {
+      "_id": "wrk_floralles",
+      "_type": "workspace",
+      "name": "Floralles API",
+      "description": "Insomnia collection for Casa-Floralles API",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_floralles",
+      "_type": "environment",
+      "parentId": "wrk_floralles",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3000",
+        "jwt": ""
+      }
+    },
+    {
+      "_id": "req_register",
+      "_type": "request",
+      "parentId": "wrk_floralles",
+      "name": "Register User",
+      "method": "POST",
+      "url": "{{ base_url }}/register",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"teste@example.com\",\n  \"password\": \"senha123\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_login",
+      "_type": "request",
+      "parentId": "wrk_floralles",
+      "name": "Login User",
+      "method": "POST",
+      "url": "{{ base_url }}/login",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"teste@example.com\",\n  \"password\": \"senha123\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" }
+      ]
+    },
+    {
+      "_id": "req_get_plantas",
+      "_type": "request",
+      "parentId": "wrk_floralles",
+      "name": "Listar Plantas",
+      "method": "GET",
+      "url": "{{ base_url }}/plantas",
+      "headers": []
+    },
+    {
+      "_id": "req_get_planta",
+      "_type": "request",
+      "parentId": "wrk_floralles",
+      "name": "Obter Planta por ID",
+      "method": "GET",
+      "url": "{{ base_url }}/plantas/:id",
+      "headers": []
+    },
+    {
+      "_id": "req_create_planta",
+      "_type": "request",
+      "parentId": "wrk_floralles",
+      "name": "Criar Planta (autenticado)",
+      "method": "POST",
+      "url": "{{ base_url }}/plantas",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"nome_p\": \"Rosa\",\n  \"nome_c\": \"Rosa rubiginosa\",\n  \"especie\": \"Rosaceae\",\n  \"classe\": \"Magnoliopsida\",\n  \"origem\": \"Europa\",\n  \"descricao\": \"Flor ornamental\",\n  \"beneficios\": \"Beleza, aroma\",\n  \"img\": \"https://example.com/rosa.jpg\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ jwt }}" }
+      ]
+    },
+    {
+      "_id": "req_update_planta",
+      "_type": "request",
+      "parentId": "wrk_floralles",
+      "name": "Atualizar Planta (autenticado)",
+      "method": "PUT",
+      "url": "{{ base_url }}/plantas/:id",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"descricao\": \"Descrição atualizada\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ jwt }}" }
+      ]
+    },
+    {
+      "_id": "req_delete_planta",
+      "_type": "request",
+      "parentId": "wrk_floralles",
+      "name": "Deletar Planta (autenticado)",
+      "method": "DELETE",
+      "url": "{{ base_url }}/plantas/:id",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ jwt }}" }
+      ]
+    }
+  ]
+}

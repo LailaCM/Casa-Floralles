@@ -101,7 +101,7 @@ async function atualizarPlanta(id, dados) {
             method: 'PUT',
             headers: { 
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + token
+                'Authorization': 'Bearer ' + getToken()
             },
             body: JSON.stringify(dados)
         });
@@ -119,3 +119,4 @@ async function atualizarPlanta(id, dados) {
         console.error(err);
     }
 }
+
